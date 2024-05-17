@@ -87,7 +87,7 @@ body {
 }
 
 .todo_form_sucess_btn {
-  background-color: #125c42 !important;
+  background-color: #f57c00 !important;
 }
 
 .todo_form_delete_btn {
@@ -103,6 +103,10 @@ body {
   margin: 1rem auto;
   background-color: #19976a !important;
   border-radius: 1.8rem !important;
+}
+
+.todo_card_inProgress {
+  background-color: #ff4d4f !important;
 }
 
 .todo_card_title {
