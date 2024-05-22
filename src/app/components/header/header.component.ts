@@ -1,13 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { TodoFormComponent } from '../todo-form/todo-form.component';
+import { Component, inject } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { TodoFormComponent } from "../todo-form/todo-form.component";
+import { FontWeigthResizerDirective } from "src/shared/directives/fontWeigthResizer.directive";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [
     CommonModule,
@@ -15,8 +16,9 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
     MatDividerModule,
     MatIconModule,
     MatDialogModule,
+    FontWeigthResizerDirective,
   ],
-  templateUrl: './header.component.html',
+  templateUrl: "./header.component.html",
   styleUrls: [],
 })
 export class HeaderComponent {
@@ -24,8 +26,8 @@ export class HeaderComponent {
 
   handlerOpenModal() {
     this.dialogSercice.open(TodoFormComponent, {
-      width: '50vw',
-      maxHeight: '80vh',
+      width: "50vw",
+      maxHeight: "80vh",
     });
   }
 }
