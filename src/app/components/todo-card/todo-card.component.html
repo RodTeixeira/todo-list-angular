@@ -23,6 +23,15 @@
           </button>
 
           <button
+            class="header_btn check-btn todo_form_edit_btn"
+            mat-icon-button
+            aria-label="Editar tarefa"
+            (click)="handlerEditTodo(todo)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button
             class="header_btn check-btn todo_form_delete_btn"
             mat-icon-button
             aria-label="Deletar tarefa"
