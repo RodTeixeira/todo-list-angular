@@ -1,9 +1,9 @@
-import { Injectable, signal } from '@angular/core';
-import { Todo } from '../models/model/todo.model';
-import { TodoKeyLocalStorage } from '../models/model/enum/todoKeyLocalStorage';
+import { Injectable, signal } from "@angular/core";
+import { Todo } from "../models/model/todo.model";
+import { TodoKeyLocalStorage } from "../models/model/enum/todoKeyLocalStorage";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class TodoSignalsService {
   public todosState = signal<Array<Todo>>([]);
@@ -12,9 +12,19 @@ export class TodoSignalsService {
     if (todo !== null || undefined) {
       this.todosState.mutate((todos) => {
         if (todos !== null) {
-          todos.push(
-            new Todo(todo.id, todo.title, todo.description, todo.done)
-          );
+          todos.push(new Todo(todo.id, todo.title, todo.description, todo.done));
+        }
+      });
+      this.saveTodosInLocalStorage();
+    }
+  }
+
+  editTodo(todo: Todo) {
+    if (todo !== null || undefined) {
+      this.todosState.mutate((todos) => {
+        const index = todos.findIndex((t) => t.id === todo.id);
+        if (index !== -1) {
+          todos[index] = new Todo(todo.id, todo.title, todo.description, todo.done);
         }
       });
       this.saveTodosInLocalStorage();
