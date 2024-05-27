@@ -8,6 +8,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
 import { TodoSignalsService } from "src/app/services/todo-signals.service";
 import { HeaderComponent } from "../header/header.component";
+import { Todo } from "src/app/models/model/todo.model";
 
 @Component({
   selector: "app-todo-form",
@@ -28,7 +29,7 @@ import { HeaderComponent } from "../header/header.component";
 export class TodoFormComponent implements OnInit {
   private todosSignalsService = inject(TodoSignalsService);
   private dialogRefService = inject(MatDialogRef<HeaderComponent>);
-  private matData = inject(MAT_DIALOG_DATA);
+  private matData = inject<Todo>(MAT_DIALOG_DATA);
   allTodos = this.todosSignalsService.todosState();
 
   public todosForm = new FormGroup({
