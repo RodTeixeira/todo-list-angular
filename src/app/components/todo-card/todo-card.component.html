@@ -6,13 +6,13 @@
           <mat-card-title class="todo_card_title">
             {{ todo.title }}
           </mat-card-title>
-
-          <mat-card-subtitle class="todo_card_subtitle">
-            {{ todo.description }}
-          </mat-card-subtitle>
         </mat-card-header>
 
-        <mat-card-actions align="end">
+        <mat-card-content class="todo_desc">
+          <p>{{ todo.description }}</p>
+        </mat-card-content>
+
+        <mat-card-actions class="todo_card_actions" align="end">
           <button
             class="header_btn check-btn"
             mat-icon-button
@@ -54,8 +54,12 @@
       <mat-card class="todo_card" *ngIf="todo.done === true">
         <mat-card-header>
           <mat-card-title class="todo_card_title">{{ todo.title }}</mat-card-title>
-          <mat-card-subtitle class="todo_card_subtitle">{{ todo.description }}</mat-card-subtitle>
         </mat-card-header>
+
+        <mat-card-content class="todo_desc">
+          <p>{{ todo.description }}</p>
+        </mat-card-content>
+
         <mat-card-actions align="end">
           <button
             class="header_btn check_btn todo_form_delete_btn"
