@@ -74,8 +74,7 @@ export class TodoCardComponent implements OnInit {
   public handlerEditTodo(todo: Todo) {
     if (todo) {
       this.dialogSercice.open(TodoFormComponent, {
-        width: "50vw",
-        maxHeight: "80vh",
+        panelClass: "dialog-responsive",
         data: todo,
       });
     }
