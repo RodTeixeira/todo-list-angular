@@ -9,6 +9,7 @@ import { TodoSignalsService } from "src/app/services/todo-signals.service";
 import { TodoKeyLocalStorage } from "src/app/models/model/enum/todoKeyLocalStorage";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { TodoFormComponent } from "../todo-form/todo-form.component";
+import { SharedModule } from "src/app/shared/shared-module";
 
 @Component({
   selector: "app-todo-card",
@@ -23,6 +24,7 @@ import { TodoFormComponent } from "../todo-form/todo-form.component";
     MatTabsModule,
     MatDialogModule,
     TodoFormComponent,
+    SharedModule,
   ],
   templateUrl: "./todo-card.component.html",
   styleUrls: [],
@@ -51,7 +53,7 @@ export class TodoCardComponent implements OnInit {
     if (todoId) {
       this.todosSignal.mutate((todos) => {
         const todoSelected = todos.find((todo) => todo?.id === todoId) as Todo;
-        todoSelected && (todoSelected.done = true);
+        todoSelected && (todoSelected.done = true) && (todoSelected.doneDate = new Date());
         this.saveTodosInLocalStorage();
       });
     }

@@ -62,8 +62,9 @@ export class TodoFormComponent implements OnInit {
       const maxId = this.allTodos.reduce((max, todo) => Math.max(max, todo.id), 0);
       const id = maxId + 1;
       const done = false;
+      const createDate = new Date();
 
-      this.todosSignalsService.updateTodos({ id, title, description, done });
+      this.todosSignalsService.updateTodos({ id, title, description, done, createDate });
       this.dialogRefService.close();
     }
   }
@@ -74,8 +75,10 @@ export class TodoFormComponent implements OnInit {
       const description = String(this.todosForm.controls["description"].value);
       const id = this.matData.id;
       const done = this.matData.done;
+      const createDate = this.matData.createDate;
+      const editDate = new Date();
 
-      this.todosSignalsService.editTodo({ id, title, description, done });
+      this.todosSignalsService.editTodo({ id, title, description, done, createDate, editDate });
       this.dialogRefService.close();
     }
   }
