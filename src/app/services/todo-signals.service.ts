@@ -12,7 +12,7 @@ export class TodoSignalsService {
     if (todo !== null || undefined) {
       this.todosState.mutate((todos) => {
         if (todos !== null) {
-          todos.push(new Todo(todo.id, todo.title, todo.description, todo.done));
+          todos.push(new Todo(todo.id, todo.title, todo.description, todo.done, todo.createDate));
         }
       });
       this.saveTodosInLocalStorage();
@@ -20,11 +20,12 @@ export class TodoSignalsService {
   }
 
   editTodo(todo: Todo) {
+    console.log(todo);
     if (todo !== null || undefined) {
       this.todosState.mutate((todos) => {
         const index = todos.findIndex((t) => t.id === todo.id);
         if (index !== -1) {
-          todos[index] = new Todo(todo.id, todo.title, todo.description, todo.done);
+          todos[index] = new Todo(todo.id, todo.title, todo.description, todo.done, todo.createDate, todo.editDate);
         }
       });
       this.saveTodosInLocalStorage();

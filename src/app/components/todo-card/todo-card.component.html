@@ -40,6 +40,11 @@
             <mat-icon>delete_forever</mat-icon>
           </button>
         </mat-card-actions>
+        <mat-card-footer class="todo_footer">
+          <span *ngIf="todo.createDate">Criado: {{ todo.createDate | dateFormat }} </span>
+          <span *ngIf="todo.editDate"> &nbsp;|| Editado: {{ todo.editDate | dateFormat }} </span>
+          <span *ngIf="!todo.editDate"> </span>
+        </mat-card-footer>
       </mat-card>
     </div>
   </mat-tab>
@@ -61,6 +66,12 @@
             <mat-icon>delete_forever</mat-icon>
           </button>
         </mat-card-actions>
+
+        <mat-card-footer class="todo_footer">
+          <span *ngIf="todo.createDate">Criado: {{ todo.createDate | dateFormat }}</span>
+          <span *ngIf="todo.editDate"> &nbsp;|| Editado: {{ todo.editDate | dateFormat }}</span>
+          <span *ngIf="todo.doneDate"> &nbsp;|| Concluida: {{ todo.doneDate | dateFormat }}</span>
+        </mat-card-footer>
       </mat-card>
     </div>
   </mat-tab>
