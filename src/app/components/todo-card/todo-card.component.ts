@@ -9,7 +9,7 @@ import { TodoSignalsService } from "src/app/services/todo-signals.service";
 import { TodoKeyLocalStorage } from "src/app/models/model/enum/todoKeyLocalStorage";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { TodoFormComponent } from "../todo-form/todo-form.component";
-import { SharedModule } from "src/app/shared/shared-module";
+import { DateFormatPipe } from "src/app/shared/utils/pipes/date-format.pipe";
 
 @Component({
   selector: "app-todo-card",
@@ -24,7 +24,7 @@ import { SharedModule } from "src/app/shared/shared-module";
     MatTabsModule,
     MatDialogModule,
     TodoFormComponent,
-    SharedModule,
+    DateFormatPipe,
   ],
   templateUrl: "./todo-card.component.html",
   styleUrls: [],
